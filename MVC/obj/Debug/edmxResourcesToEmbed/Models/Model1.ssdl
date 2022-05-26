@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="hospitalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="cita">
+    <Key>
+      <PropertyRef Name="cod_cita" />
+    </Key>
+    <Property Name="cod_cita" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="hora" Type="time" Precision="7" />
+    <Property Name="idpaciente" Type="nvarchar" MaxLength="10" />
+    <Property Name="idmedico" Type="nvarchar" MaxLength="10" />
+    <Property Name="valor" Type="int" />
+    <Property Name="diagnostico" Type="nvarchar(max)" />
+    <Property Name="nom_acompañante" Type="nvarchar" MaxLength="50" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="medico">
+    <Key>
+      <PropertyRef Name="id_medico" />
+    </Key>
+    <Property Name="id_medico" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="nom_medico" Type="nvarchar" MaxLength="50" />
+    <Property Name="especialidad" Type="nvarchar" MaxLength="30" />
+    <Property Name="tel_medico" Type="nvarchar" MaxLength="10" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="paciente">
+    <Key>
+      <PropertyRef Name="id_paciente" />
+    </Key>
+    <Property Name="id_paciente" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="tip_doc" Type="nvarchar" MaxLength="20" />
+    <Property Name="nom_paciente" Type="nvarchar" MaxLength="50" />
+    <Property Name="dir_paciente" Type="nvarchar" MaxLength="50" />
+    <Property Name="tel_paciente" Type="nvarchar" MaxLength="10" />
+    <Property Name="cel_paciente" Type="nvarchar" MaxLength="10" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityContainer Name="hospitalModelStoreContainer">
+    <EntitySet Name="cita" EntityType="Self.cita" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="medico" EntityType="Self.medico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="paciente" EntityType="Self.paciente" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

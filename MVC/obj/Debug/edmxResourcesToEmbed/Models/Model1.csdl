@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="hospitalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="cita">
+    <Key>
+      <PropertyRef Name="cod_cita" />
+    </Key>
+    <Property Name="cod_cita" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="hora" Type="Time" Precision="7" />
+    <Property Name="idpaciente" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="idmedico" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="valor" Type="Int32" />
+    <Property Name="diagnostico" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="nom_acompañante" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="activo" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="medico">
+    <Key>
+      <PropertyRef Name="id_medico" />
+    </Key>
+    <Property Name="id_medico" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nom_medico" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="especialidad" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="tel_medico" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="activo" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="paciente">
+    <Key>
+      <PropertyRef Name="id_paciente" />
+    </Key>
+    <Property Name="id_paciente" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tip_doc" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="nom_paciente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dir_paciente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="tel_paciente" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="cel_paciente" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="activo" Type="Boolean" />
+  </EntityType>
+  <EntityContainer Name="hospitalEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="cita" EntityType="Self.cita" />
+    <EntitySet Name="medico" EntityType="Self.medico" />
+    <EntitySet Name="paciente" EntityType="Self.paciente" />
+  </EntityContainer>
+</Schema>
